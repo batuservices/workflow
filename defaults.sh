@@ -30,4 +30,3 @@ sudo apt install aria2
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
 sudo fstrim -av
-rm ~/.bash_history && history -c
