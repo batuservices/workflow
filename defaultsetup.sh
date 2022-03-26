@@ -1,10 +1,8 @@
 #!/bin/bash
 read -p "Do you want to continue? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-sudo apt update && sudo apt upgrade
+read -p "Are you sure you wish to continue?"
+if [ "$REPLY" != "yes" ]; then
+   exit
 sudo apt dist-upgrade && sudo apt autoremove
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt install -y nodejs
