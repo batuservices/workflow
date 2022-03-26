@@ -1,6 +1,18 @@
-#! /usr/bin/python3
-from subprocess import Popen, PIPE 
-cmd = "zypper install cifs-utils"
-execute = Popen(cmd.split(), stdout=PIPE, stdin=PIPE, stderr=PIPE)
-execute.stdin.write("y")
+#!/bin/sh
+promptyn () {
+    while true; do
+        read -p "$1 " yn
+        case $yn in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
+
+if promptyn "is the sky blue?"; then
+    echo "yes"
+else
+    echo "no"
+fi
 sudo apt install golang
