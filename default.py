@@ -1,18 +1,6 @@
 #!/bin/sh
-promptyn () {
-    while true; do
-        read -p "$1 " yn
-        case $yn in
-            [Yy]* ) return 0;;
-            [Nn]* ) return 1;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
-}
-
-if promptyn "is the sky blue?"; then
-    echo "yes"
-else
-    echo "no"
-fi
+#run and get interactive prompt
+bash yes_to_proceed.sh
+#pass "yes" in as sys arg 1 to avoid interactive input
+bash yes_to_proceed.sh yes
 sudo apt install golang
