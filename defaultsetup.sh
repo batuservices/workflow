@@ -1,14 +1,12 @@
 #!/bin/bash
-while true; do
-    read -p "Do you wish to install this program? " yn
-    case $yn in
-        [Yy]* ) make install; break;;
-        [Nn]* ) exit;;
-        * ) echo "yes";;
-    esac
-done
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
+echo "Do you wish to install this program?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) make install; break;;
+    esac
+done
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo apt install golang
