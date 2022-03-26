@@ -1,6 +1,10 @@
 #!/bin/bash
-read -e -p "Do you wish to install this program? " choice
-[[ "$choice" == [Yy]* ]] && echo "Do you want to continue? [Y/n] || echo "yes"
+read -p "Are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+fi
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
