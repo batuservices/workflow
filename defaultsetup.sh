@@ -4,7 +4,7 @@ while true; do
     case $yn in
         [Yy]* ) make install; break;;
         [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
+        * ) echo "yes";;
     esac
 done
 sudo apt update && sudo apt upgrade
