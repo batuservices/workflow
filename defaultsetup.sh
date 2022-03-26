@@ -1,10 +1,9 @@
 #!/bin/bash
-read -p "Are you sure? " -n 1 -r
+read -p "Do you want to continue? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-fi
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
@@ -36,4 +35,4 @@ sudo apt install aria2
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
 sudo fstrim -av
-sudo reboot
+fi
