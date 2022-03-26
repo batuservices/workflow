@@ -1,9 +1,7 @@
 #!/bin/bash
-sudo apt update && sudo apt upgrade
-sudo apt dist-upgrade && sudo apt autoremove
 echo "Do you wish to install this program?"
 function yes_or_no {
-    while true; do
+    while true; yes
         read -p "$* [y/n]: " yn
         case $yn in
             [Yy]*) return 0  ;;  
@@ -11,6 +9,8 @@ function yes_or_no {
         esac
     done
 }
+sudo apt update && sudo apt upgrade
+sudo apt dist-upgrade && sudo apt autoremove
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo apt install golang
