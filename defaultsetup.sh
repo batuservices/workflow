@@ -5,3 +5,4 @@ if [ "$REPLY" != "yes" ]; then
    exit
 sudo apt install golang
 fi
+sudo reboot
