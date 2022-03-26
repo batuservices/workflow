@@ -1,14 +1,6 @@
 #!/bin/bash
-echo "Do you wish to install this program?"
-function yes_or_no {
-    while true; yes
-        read -p "$* [y/n]: " yn
-        case $yn in
-            [Yy]*) return 0  ;;  
-            [Nn]*) echo "Aborted" ; return  1 ;;
-        esac
-    done
-}
+read -e -p "Do you wish to install this program? " choice
+[[ "$choice" == [Yy]* ]] && echo "Do you want to continue? [Y/n] || echo "yes"
 sudo apt update && sudo apt upgrade
 sudo apt dist-upgrade && sudo apt autoremove
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
